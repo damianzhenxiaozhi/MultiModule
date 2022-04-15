@@ -17,9 +17,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <module1Version>1.0.0</module1Version>
-        <moduel2Version>1.0.0</moduel2Version>
-        <commonVersion>1.0.0</commonVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -27,17 +25,17 @@
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>Common</artifactId>
-                <version>${commonVersion}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>Module1</artifactId>
-                <version>${module1Version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>Module2</artifactId>
-                <version>${module2Version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -49,11 +47,28 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.10.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.3.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
